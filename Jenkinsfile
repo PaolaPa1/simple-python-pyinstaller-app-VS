@@ -6,7 +6,7 @@ pipeline {
         }
     }
     environment {
-        DOCKER_HOST = 'tcp://docker:2376'
+        DOCKER_HOST = 'tcp://jenkins-docker:2376'
         DOCKER_CERT_PATH = '/certs/client'
         DOCKER_TLS_VERIFY = '1'
     }
