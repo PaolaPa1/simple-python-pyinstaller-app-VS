@@ -6,7 +6,7 @@ pipeline {
         }
     }
     environment {
-        DOCKER_HOST = 'tcp://jenkins-docker:2376'
+        DOCKER_HOST = 'tcp://jenkins-docker:2375'
         //DOCKER_HOST= 'unix:///var/run/docker.sock'
 
         DOCKER_CERT_PATH = '/certs/client'
