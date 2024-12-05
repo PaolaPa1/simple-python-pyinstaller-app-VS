@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'docker:stable-dind'
+            image 'docker:dind'
             args '--privileged --network=red_jenkins'
         }
     }
