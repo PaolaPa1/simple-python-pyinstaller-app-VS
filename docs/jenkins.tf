@@ -39,10 +39,10 @@ resource "docker_container" "jenkins_blueocean" {
     read_only = true
   }
 
-  volumes {
-    host_path      = "/var/run/docker.sock"  # Monta il socket Docker host nel container
-    container_path = "/var/run/docker.sock"
-  }
+  #volumes {
+    #host_path      = "/var/run/docker.sock"  # Monta il socket Docker host nel container
+    #container_path = "/var/run/docker.sock"
+  #}
   
   ports {
     internal = 8080
