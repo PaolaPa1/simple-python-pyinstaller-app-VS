@@ -41,10 +41,10 @@ resource "docker_container" "jenkins_docker" {
     container_path = "/var/jenkins_home"
   }
 
-  volumes {
-    host_path      = "/var/run/docker.sock"  # Monta il socket Docker host nel container
-    container_path = "/var/run/docker.sock"
-  }
+  #volumes {
+    #host_path      = "/var/run/docker.sock"  # Monta il socket Docker host nel container
+    #container_path = "/var/run/docker.sock"
+  #}
   
   networks_advanced {
     name    = docker_network.jenkins_network.name
