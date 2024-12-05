@@ -27,7 +27,7 @@ resource "docker_container" "jenkins_docker" {
     "DOCKER_TLS_CERTDIR = /certs"
   ]
 
-  restart = "always"
+  restart = "no"
 
   privileged = true  
 
