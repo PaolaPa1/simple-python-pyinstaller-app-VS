@@ -15,14 +15,14 @@ resource "docker_container" "jenkins_blueocean" {
 
   # Variables de entorno
   env = [
-    "DOCKER_HOST = tcp://jenkins-docker:2376",
+    "DOCKER_HOST = tcp://docker:dind:2376",
     "DOCKER_CERT_PATH = /certs/client",
     "DOCKER_TLS_VERIFY = 1"
   ]
 
   networks_advanced {
     name    = docker_network.jenkins_network.name
-    aliases = ["jenkins_red"]
+    aliases = ["red_jenkins"]
   }
 
   # Volúmenes

@@ -29,7 +29,7 @@ resource "docker_container" "jenkins_docker" {
 
   restart = "no"
 
-  privileged = true  
+  privileged = "true"  
 
   volumes {
     volume_name    = "jenkins-docker-certs"
