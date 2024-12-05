@@ -8,6 +8,10 @@ terraform {
   }
 }
 
+provider "docker" {
+  host = "unix:///var/run/docker.sock"
+}
+
 # Creamos la red Docker bridge para conectar Jenkins y dind
 resource "docker_network" "jenkins_network" {
   name = "red_jenkins"
@@ -44,6 +48,11 @@ resource "docker_container" "jenkins_docker" {
     container_path = "/var/jenkins_home"
   }
 
+  volumes {
+    host_path      = "/var/run/docker.sock"  # Monta il socket Docker host nel container
+    container_path = "/var/run/docker.sock"
+  }
+  
   networks_advanced {
     name    = docker_network.jenkins_network.name
     aliases = ["jenkins_red"]
