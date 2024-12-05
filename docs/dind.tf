@@ -8,10 +8,6 @@ terraform {
   }
 }
 
-provider "docker" {
-  host = "unix:///var/run/docker.sock"
-}
-
 # Creamos la red Docker bridge para conectar Jenkins y dind
 resource "docker_network" "jenkins_network" {
   name = "red_jenkins"
@@ -31,10 +27,7 @@ resource "docker_container" "jenkins_docker" {
     "DOCKER_TLS_CERTDIR = /certs"
   ]
 
-  #detach    = true  # para ejecutar el contenedor en segundo plano
   restart = "always"
-
-  #remove = true
 
   privileged = true  
 
