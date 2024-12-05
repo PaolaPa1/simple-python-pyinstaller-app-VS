@@ -28,9 +28,11 @@ resource "docker_container" "jenkins_docker" {
   ]
 
   #detach    = true  # para ejecutar el contenedor en segundo plano
-  #restart = always
+  restart = "always"
+
   #remove = true
-  #privileged = true
+
+  privileged = true  
 
   volumes {
     volume_name    = "jenkins-docker-certs"
