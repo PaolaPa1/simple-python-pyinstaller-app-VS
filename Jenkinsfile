@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'docker:dind'
-            args '--privileged --network=red_jenkins'
+            args '--privileged --network = red_jenkins'
         }
     }
     environment {
