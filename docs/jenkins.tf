@@ -15,7 +15,7 @@ resource "docker_container" "jenkins_blueocean" {
 
   # Variables de entorno
   env = [
-    "DOCKER_HOST = tcp://jenkins-docker:2375",
+    "DOCKER_HOST = tcp://jenkins-docker:2376",
     "DOCKER_CERT_PATH = /certs/client",
     "DOCKER_TLS_VERIFY = 1"
   ]
@@ -38,11 +38,6 @@ resource "docker_container" "jenkins_blueocean" {
     container_path= "/certs/client"
     read_only = true
   }
-
-  #volumes {
-    #host_path      = "/var/run/docker.sock"  # Monta il socket Docker host nel container
-    #container_path = "/var/run/docker.sock"
-  #}
   
   ports {
     internal = 8080

@@ -19,8 +19,8 @@ resource "docker_container" "jenkins_docker" {
   image        = "docker:dind"
   network_mode = docker_network.jenkins_network.name
   ports {
-    internal = 2375
-    external = 2375
+    internal = 2376
+    external = 2376
   }
 
   env = [
@@ -40,11 +40,6 @@ resource "docker_container" "jenkins_docker" {
     volume_name    = "jenkins-data"
     container_path = "/var/jenkins_home"
   }
-
-  #volumes {
-    #host_path      = "/var/run/docker.sock"  # Monta il socket Docker host nel container
-    #container_path = "/var/run/docker.sock"
-  #}
   
   networks_advanced {
     name    = docker_network.jenkins_network.name
